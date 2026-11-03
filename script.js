@@ -1,169 +1,134 @@
+// =====================================
+// BLOGSPACE - COMPLETE JAVASCRIPT
+// HTML + CSS + JavaScript
+// =====================================
+
+const $ = (selector) => document.querySelector(selector);
 
 const categories = [
-  "All", "Technology", "Education", "Lifestyle", "Fashion",
-  "Food", "Travel", "Business", "Health", "Motivation",
-  "Programming", "Beauty", "Islamic"
+  "Technology",
+  "Education",
+  "Lifestyle",
+  "Fashion",
+  "Food",
+  "Travel",
+  "Business",
+  "Health",
+  "Programming",
+  "Islamic"
 ];
 
-const titles = {
+const blogIdeas = {
   Technology: [
-    "How Technology Is Changing Our Daily Lives", "The Future of Artificial Intelligence",
-    "Smart Gadgets That Make Life Easier", "Digital Innovation in the Modern World",
-    "Why Technology Matters Today", "The Evolution of Modern Technology",
-    "How the Internet Connects the World", "Technology Trends You Should Know",
-    "The Power of Digital Transformation", "A Beginner's Guide to Tech Innovation",
-    "How Technology Helps Students", "The Rise of Smart Devices",
-    "Technology and the Future of Work", "Digital Tools for Everyday Life",
-    "Exploring the World of Innovation", "How Apps Are Changing Our Habits",
-    "The Next Generation of Technology"
+    ["How Technology Is Changing Our Daily Lives", "Discover how modern technology is transforming the way we work, communicate and learn."],
+    ["Artificial Intelligence for Beginners", "A simple introduction to artificial intelligence and its growing importance."],
+    ["The Future of Smartphones", "Explore the latest smartphone trends and what the future may bring."],
+    ["Why Digital Skills Matter Today", "Learn why digital skills are becoming essential in the modern world."],
+    ["Technology and the Next Generation", "How young people can use technology to create a better future."],
+    ["The Importance of Online Privacy", "Simple ways to protect your personal information online."],
+    ["How Social Media Shapes Society", "Understand the positive and negative effects of social media."]
   ],
+
   Education: [
-    "Why Learning Never Stops", "Smart Study Habits for Students",
-    "How to Make Learning More Effective", "The Importance of Education",
-    "Tips for Better Exam Preparation", "How Reading Improves Your Knowledge",
-    "Online Learning in the Modern Age", "Building a Successful Study Routine",
-    "How to Stay Focused While Studying", "The Benefits of Learning New Skills",
-    "Education Opens New Opportunities", "How to Manage Your Study Time",
-    "Learning Beyond the Classroom", "Simple Ways to Improve Your Memory",
-    "The Value of Creative Thinking", "How Teachers Inspire Students",
-    "A Guide to Lifelong Learning"
+    ["The Power of Learning Every Day", "Small learning habits can create big changes in your life."],
+    ["How to Become a Better Student", "Practical tips to improve your study routine and confidence."],
+    ["Why Education Is Important for Everyone", "Education gives people knowledge, confidence and opportunities."],
+    ["Smart Study Techniques That Work", "Explore effective techniques to make your study sessions productive."],
+    ["The Benefits of Reading Books", "Reading improves knowledge, vocabulary and imagination."],
+    ["Online Learning: A New Opportunity", "Discover how online education makes learning more accessible."],
+    ["How to Prepare for Exams", "A simple guide to planning revision and managing exam stress."]
   ],
+
   Lifestyle: [
-    "Simple Habits for a Better Life", "How to Build a Balanced Routine",
-    "Small Changes That Make a Big Difference", "The Beauty of Simple Living",
-    "Creating a Peaceful Daily Routine", "How to Organize Your Day",
-    "Finding Balance in a Busy World", "The Importance of Personal Growth",
-    "How to Make Time for Yourself", "A Guide to Mindful Living",
-    "Healthy Habits for Everyday Life", "How to Stay Organized",
-    "Making Your Home More Comfortable", "The Art of Slow Living",
-    "How to Create Positive Habits", "Ways to Reduce Daily Stress",
-    "Living a More Meaningful Life"
+    ["Build a Better Morning Routine", "Start your day with simple habits that support a positive lifestyle."],
+    ["Small Habits That Change Your Life", "Everyday habits can help you become a better version of yourself."],
+    ["How to Manage Your Time", "Learn to organize your day and focus on what matters."],
+    ["The Beauty of Simple Living", "Find happiness in simple moments and meaningful experiences."],
+    ["Why Self Care Is Important", "Taking care of yourself helps you stay balanced and refreshed."],
+    ["Creating a Peaceful Home", "Simple ideas to make your home feel comfortable and welcoming."],
+    ["How to Stay Organized", "Easy organization tips for your daily life."]
   ],
+
   Fashion: [
-    "Fashion Trends Worth Exploring", "How to Build a Timeless Wardrobe",
-    "Simple Outfit Ideas for Every Day", "The Art of Personal Style",
-    "Fashion Tips for a Classy Look", "How to Choose the Right Colors",
-    "Minimal Fashion for Modern Living", "Everyday Style Inspiration",
-    "How Accessories Complete an Outfit", "Building Confidence Through Style",
-    "Fashion Ideas on a Budget", "The Beauty of Classic Clothing",
-    "How to Find Your Signature Style", "A Beginner's Guide to Fashion",
-    "Modern Trends and Timeless Pieces", "How to Organize Your Wardrobe",
-    "Style Tips for Every Season"
+    ["Simple Fashion Tips for Everyday", "Create comfortable and stylish looks with simple fashion choices."],
+    ["How to Build a Capsule Wardrobe", "Learn how a few versatile pieces can create many outfits."],
+    ["The Beauty of Traditional Fashion", "Explore the charm of traditional clothing and cultural style."],
+    ["Choosing Colors That Match", "A beginner-friendly guide to combining colors in outfits."],
+    ["Modest Fashion Inspiration", "Discover elegant and comfortable modest fashion ideas."],
+    ["Fashion Trends and Personal Style", "Understand trends while keeping your own unique style."],
+    ["How Accessories Complete an Outfit", "Small accessories can make a simple outfit look special."]
   ],
+
   Food: [
-    "Easy Recipes for Busy Days", "The Joy of Homemade Food",
-    "Healthy Meals You Can Make at Home", "A Beginner's Guide to Cooking",
-    "Delicious Breakfast Ideas", "How to Make Cooking More Fun",
-    "Exploring Different Food Cultures", "Simple Snacks for Everyone",
-    "The Secret of Good Homemade Meals", "Fresh Ingredients for Better Food",
-    "Quick Lunch Ideas for Students", "The Art of Beautiful Food Presentation",
-    "Easy Desserts to Try at Home", "Why Balanced Meals Matter",
-    "Cooking Tips Everyone Should Know", "A Journey Through World Cuisine",
-    "Making Healthy Eating Simple"
+    ["Easy Breakfast Ideas for Busy Days", "Quick and delicious breakfast ideas to start your morning."],
+    ["The Joy of Homemade Food", "Why homemade meals can bring comfort and happiness."],
+    ["Simple Healthy Snacks", "Easy snack ideas for a balanced daily routine."],
+    ["A Beginner's Guide to Baking", "Learn the basics of baking with simple kitchen tips."],
+    ["Traditional Foods Around the World", "Explore delicious traditional dishes from different cultures."],
+    ["How to Plan Weekly Meals", "Make your week easier with a simple meal-planning routine."],
+    ["Refreshing Drinks for Summer", "Try simple and refreshing drink ideas for warm days."]
   ],
+
   Travel: [
-    "Beautiful Places to Explore", "A Beginner's Guide to Travelling",
-    "How to Plan a Memorable Trip", "Travel Tips for First-Time Explorers",
-    "The Beauty of Mountain Destinations", "Exploring New Cultures Through Travel",
-    "How to Travel on a Budget", "Making Memories Around the World",
-    "Why Travelling Changes Your Perspective", "The Joy of Discovering New Places",
-    "A Guide to Smart Travel Planning", "Hidden Gems Worth Discovering",
-    "How to Pack for a Short Trip", "Exploring Nature and Adventure",
-    "The Art of Slow Travel", "Travel Photography Tips",
-    "Planning Your Next Adventure"
+    ["Why Traveling Opens Your Mind", "Travel introduces you to new places, people and experiences."],
+    ["How to Plan Your First Trip", "A simple guide to planning a memorable journey."],
+    ["Beautiful Places Worth Exploring", "Discover the joy of exploring nature and new destinations."],
+    ["Travel on a Small Budget", "Helpful ways to enjoy a trip without spending too much."],
+    ["The Magic of Mountain Destinations", "Explore the peaceful beauty of mountain landscapes."],
+    ["Travel Photography for Beginners", "Capture memorable moments with simple photography tips."],
+    ["Things to Pack Before a Journey", "A practical packing guide for your next adventure."]
   ],
+
   Business: [
-    "How to Start a Small Business", "Business Skills Everyone Should Learn",
-    "The Basics of Entrepreneurship", "How to Build a Strong Brand",
-    "Smart Ideas for New Entrepreneurs", "Understanding the Digital Business World",
-    "How to Manage Your Money", "The Importance of Customer Service",
-    "Building a Successful Business Plan", "Marketing Tips for Beginners",
-    "How to Turn Ideas Into Opportunities", "The Power of Creative Thinking in Business",
-    "Building Trust With Customers", "Simple Productivity Tips for Entrepreneurs",
-    "How Small Businesses Grow", "Understanding Modern Marketing",
-    "Lessons Every Entrepreneur Should Know"
+    ["How to Start a Small Business", "Understand the first steps of turning an idea into a business."],
+    ["The Importance of Personal Branding", "Build a clear and memorable identity for your work."],
+    ["Smart Money Habits for Beginners", "Learn simple ways to manage your money wisely."],
+    ["How to Become a Better Leader", "Explore the qualities that help people lead with confidence."],
+    ["Digital Marketing Made Simple", "An introduction to promoting products and services online."],
+    ["Turning Your Passion Into Work", "Discover how your interests can inspire a business idea."],
+    ["Why Customer Experience Matters", "Good customer experiences help businesses build trust."]
   ],
+
   Health: [
-    "Simple Ways to Stay Healthy", "Why Daily Exercise Matters",
-    "Building Healthy Eating Habits", "The Importance of Quality Sleep",
-    "How to Create a Wellness Routine", "Healthy Habits for a Better Life",
-    "Why Hydration Is Important", "The Benefits of Walking Every Day",
-    "How to Take Care of Yourself", "Understanding Balanced Nutrition",
-    "Simple Fitness Ideas for Beginners", "The Value of a Healthy Routine",
-    "How to Make Time for Exercise", "Everyday Wellness Tips",
-    "Taking Small Steps Toward Better Health", "The Importance of Rest and Recovery",
-    "Creating a Healthy Lifestyle"
+    ["Healthy Habits for a Better Life", "Simple daily habits can support your overall well-being."],
+    ["Why Drinking Water Matters", "Learn about the importance of staying hydrated."],
+    ["The Benefits of Daily Walking", "Walking is a simple activity that can support an active lifestyle."],
+    ["How to Improve Your Sleep Routine", "Build a relaxing routine for better sleep habits."],
+    ["Healthy Eating for Beginners", "Understand the basics of balanced and varied meals."],
+    ["Taking Breaks During Study", "Short breaks can help you refresh your mind."],
+    ["The Importance of Mental Rest", "Give yourself time to relax and recharge."]
   ],
-  Motivation: [
-    "Believe in Yourself and Keep Going", "Small Steps Lead to Big Success",
-    "How to Stay Motivated Every Day", "Never Stop Working on Your Dreams",
-    "The Power of a Positive Mindset", "Turning Challenges Into Opportunities",
-    "How to Build Self Confidence", "Your Journey Is Your Own",
-    "Why Consistency Matters More Than Perfection", "Learning From Every Experience",
-    "Start Today, Not Tomorrow", "The Importance of Setting Goals",
-    "How to Overcome Self Doubt", "Keep Growing, Keep Learning",
-    "The Courage to Try Something New", "Making Progress One Day at a Time",
-    "Your Future Starts With Today's Choices"
-  ],
+
   Programming: [
-    "A Beginner's Guide to HTML", "Why Every Student Should Learn JavaScript",
-    "Understanding CSS the Easy Way", "How to Start Your Coding Journey",
-    "Frontend Development for Beginners", "The Basics of Web Development",
-    "How to Build Your First Website", "Understanding JavaScript Functions",
-    "Why GitHub Is Important for Developers", "Learning Programming Step by Step",
-    "The Difference Between Frontend and Backend", "How to Improve Your Coding Skills",
-    "Introduction to Node.js", "Building Responsive Websites",
-    "Common Mistakes New Programmers Make", "How to Practice Coding Every Day",
-    "The Future of Web Development"
+    ["Your First Step Into Web Development", "Start learning how websites are created using HTML, CSS and JavaScript."],
+    ["HTML Basics Every Beginner Should Know", "Understand the structure of a web page with HTML."],
+    ["CSS Tips for Beautiful Websites", "Learn how CSS can make websites attractive and responsive."],
+    ["JavaScript: Make Your Website Interactive", "Discover how JavaScript adds functionality to websites."],
+    ["Why Every Developer Needs GitHub", "Learn how GitHub helps developers manage and share code."],
+    ["Build Your First Portfolio Website", "A beginner-friendly guide to creating your developer portfolio."],
+    ["Frontend vs Backend Development", "Understand the difference between frontend and backend development."]
   ],
-  Beauty: [
-    "Simple Beauty Habits for Everyday Life", "A Beginner's Guide to Skincare",
-    "How to Build a Simple Beauty Routine", "Everyday Self-Care Ideas",
-    "The Importance of Skin Protection", "Beauty Tips for a Fresh Look",
-    "How to Organize Your Beauty Products", "Simple Makeup Ideas for Beginners",
-    "Understanding Your Personal Style", "A Guide to Everyday Grooming",
-    "The Beauty of Natural Confidence", "How to Create a Morning Routine",
-    "Simple Ways to Practice Self-Care", "Beauty Essentials Worth Knowing",
-    "Keeping Your Routine Simple", "Everyday Tips for Feeling Your Best",
-    "Confidence Is Your Best Accessory"
-  ],
+
   Islamic: [
-    "The Importance of Gratitude in Islam", "Small Good Deeds With Great Value",
-    "The Beauty of Patience", "Why Prayer Matters in Daily Life",
-    "Learning From the Quran", "The Importance of Good Character",
-    "Kindness Is a Beautiful Quality", "The Value of Helping Others",
-    "Making Time for Reflection", "The Importance of Honesty",
-    "Building Good Habits Through Faith", "The Beauty of Sharing Knowledge",
-    "Why Forgiveness Matters", "The Importance of Respecting Parents",
-    "Finding Peace Through Remembrance", "The Value of Sincere Intentions",
-    "A Reminder to Be Thankful"
+    ["The Importance of Good Character", "Good manners and kindness are important parts of everyday life."],
+    ["Finding Peace Through Prayer", "Reflect on the value of prayer and remembering Allah."],
+    ["The Beauty of Helping Others", "Small acts of kindness can make a meaningful difference."],
+    ["Making Time for Quran Reading", "Build a simple and consistent Quran reading routine."],
+    ["The Value of Patience", "Patience helps us face life's challenges with strength."],
+    ["Gratitude in Everyday Life", "Remembering our blessings can bring peace to the heart."],
+    ["The Importance of Honesty", "Honesty builds trust and strengthens relationships."]
   ]
 };
 
-const descriptions = [
-  "Discover useful ideas, practical tips and fresh perspectives that can help you learn something new.",
-  "Explore this topic with simple explanations, helpful examples and ideas for everyday life.",
-  "A thoughtful guide filled with inspiration, useful knowledge and practical information.",
-  "Learn how small changes and new ideas can make a positive difference in your daily routine.",
-  "Take a closer look at this interesting topic and discover things worth remembering.",
-  "This article brings together simple advice, creative ideas and useful information for beginners."
-];
-
-const sampleAuthors = [
-  "Ayesha Khan", "Fatima Ali", "Hassan Ahmed", "Zoya Malik",
-  "Mariam Noor", "Ali Raza", "Sara Ahmed", "Hira Shah",
-  "Usman Tariq", "Areeba Khan", "Hamza Noor", "Mehak Ali"
-];
-
-// ========================================
-// LOCAL STORAGE
-// ========================================
+// =====================================
+// STORAGE
+// =====================================
 
 function getData(key, fallback) {
   try {
     const value = localStorage.getItem(key);
     return value ? JSON.parse(value) : fallback;
-  } catch {
+  } catch (error) {
     return fallback;
   }
 }
@@ -172,93 +137,45 @@ function saveData(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+let blogs = [];
 let users = getData("blogspace_users", []);
 let currentUser = getData("blogspace_currentUser", null);
-let blogs = getData("blogspace_blogs", []);
 let savedBlogs = getData("blogspace_saved", []);
+let activePage = "home";
 let activeCategory = "All";
-let activePage = "explore";
-let editingBlogId = null;
 let currentArticleId = null;
-let authMode = "login";
+let editingBlogId = null;
+let authMode = "signup";
 
-// ========================================
-// HELPERS
-// ========================================
-
-function escapeHTML(value = "") {
-  return String(value).replace(/[&<>"']/g, char => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;",
-    '"': "&quot;", "'": "&#039;"
-  })[char]);
-}
-
-function makeId() {
-  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-}
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(window.toastTimer);
-  window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
-}
-
-function formatDate(date) {
-  return new Date(date).toLocaleDateString("en", {
-    day: "numeric", month: "short", year: "numeric"
-  });
-}
-
-// ========================================
-// UNIQUE IMAGE URL FOR EACH BLOG
-// ========================================
-
-function getBlogImage(category, number) {
-  const seed = `blogspace-${category}-${number}`;
-  return `https://picsum.photos/seed/${encodeURIComponent(seed)}/900/600`;
-}
-
-function imageFallback(blogId) {
-  const seed = `blogspace-fallback-${blogId}`;
-  return `https://picsum.photos/seed/${encodeURIComponent(seed)}/900/600`;
-}
-
-// ========================================
-// GENERATE 204 SAMPLE BLOGS
-// ========================================
+// =====================================
+// SAMPLE BLOG GENERATOR - 70 BLOGS
+// =====================================
 
 function generateSampleBlogs() {
-  const sampleBlogs = [];
+  const result = [];
   let number = 1;
 
-  Object.keys(titles).forEach(category => {
-    titles[category].forEach((title, index) => {
-      const description = descriptions[index % descriptions.length];
+  categories.forEach((category, categoryIndex) => {
+    blogIdeas[category].forEach((idea, index) => {
+      const id = `sample-${number}`;
 
-      sampleBlogs.push({
-        id: "sample-" + number,
-        title,
-        category,
-        excerpt: description,
+      result.push({
+        id,
+        title: idea[0],
+        excerpt: idea[1],
         content:
-          title + "\n\n" + description +
-          "\n\nWhy is this topic important?\n\n" +
-          "Learning about new ideas helps us understand the world better. " +
-          "Start with the basics, explore reliable information and keep practicing.\n\n" +
-          "Practical tips:\n\n" +
-          "• Take one step at a time.\n" +
-          "• Keep learning and asking questions.\n" +
-          "• Apply what you learn in everyday life.\n" +
-          "• Share useful knowledge with others.\n\n" +
-          "Remember that progress comes through patience and consistency. " +
-          "Keep exploring, stay curious and never stop learning.",
-        image: getBlogImage(category, number),
-        author: sampleAuthors[index % sampleAuthors.length],
-        date: new Date(Date.now() - number * 3600000).toISOString(),
-        likes: (number * 7) % 85,
-        views: (number * 19) % 500,
+          `${idea[1]}\n\n` +
+          `In today's world, it is important to keep learning and discovering new ideas. ` +
+          `Every small step can help us improve our knowledge and understanding.\n\n` +
+          `Start with simple actions, stay consistent and do not be afraid to try something new. ` +
+          `With time, practice and patience, you can make meaningful progress.\n\n` +
+          `Remember that every journey begins with one small step. Keep learning, keep growing and keep sharing your ideas.`,
+        category,
+        image: `https://picsum.photos/seed/blogspace-${categoryIndex}-${index}/900/600`,
+        author: "BlogSpace Editorial",
+        date: new Date(Date.now() - number * 86400000).toISOString(),
+        likes: [],
+        views: 0,
         comments: [],
         isSample: true
       });
@@ -267,98 +184,181 @@ function generateSampleBlogs() {
     });
   });
 
-  return sampleBlogs;
+  return result;
 }
 
 function initializeBlogs() {
-  const existing = getData("blogspace_blogs", null);
+  const oldBlogs = getData("blogspace_blogs", []);
+  const sampleVersion = localStorage.getItem("blogspace_sample_version");
 
-  if (!Array.isArray(existing) || existing.length === 0) {
-    blogs = generateSampleBlogs();
+  if (sampleVersion !== "70-v1") {
+    const userBlogs = Array.isArray(oldBlogs)
+      ? oldBlogs.filter(blog => !blog.isSample)
+      : [];
+
+    blogs = [...userBlogs, ...generateSampleBlogs()];
     saveData("blogspace_blogs", blogs);
+    localStorage.setItem("blogspace_sample_version", "70-v1");
   } else {
-    blogs = existing;
+    blogs = Array.isArray(oldBlogs) ? oldBlogs : [];
   }
 }
 
-// ========================================
-// CATEGORIES
-// ========================================
-
-function renderCategories() {
-  document.getElementById("categoryList").innerHTML =
-    categories.map(category => `
-      <button class="category-btn ${activeCategory === category ? "active" : ""}"
-        data-category="${escapeHTML(category)}">
-        ${escapeHTML(category)}
-      </button>
-    `).join("");
+function saveBlogs() {
+  saveData("blogspace_blogs", blogs);
 }
 
-document.getElementById("categoryList").addEventListener("click", event => {
+// =====================================
+// HELPERS
+// =====================================
+
+function escapeHTML(value = "") {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+function getBlog(id) {
+  return blogs.find(blog => String(blog.id) === String(id));
+}
+
+function getImage(blog) {
+  return blog.image ||
+    `https://picsum.photos/seed/blogspace-fallback-${encodeURIComponent(blog.id)}/900/600`;
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+function showToast(message) {
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+function openModal(id) {
+  $("#" + id).classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(modal) {
+  modal.classList.add("hidden");
+
+  if (!document.querySelector(".modal:not(.hidden)")) {
+    document.body.style.overflow = "";
+  }
+}
+
+// =====================================
+// NAVIGATION
+// =====================================
+
+function showPage(page) {
+  activePage = page;
+  activeCategory = "All";
+
+  $("#searchInput").value = "";
+
+  document.querySelectorAll(".nav-link").forEach(button => {
+    button.classList.toggle("active", button.dataset.page === page);
+  });
+
+  $("#nav").classList.remove("open");
+
+  $("#hero").classList.toggle("hidden",
+    !["home", "explore"].includes(page));
+
+  document.querySelector(".stats").classList.toggle("hidden",
+    !["home", "explore"].includes(page));
+
+  document.querySelector(".newsletter").classList.toggle("hidden",
+    !["home", "explore"].includes(page));
+
+  const headings = {
+    home: ["Latest Stories", "A little inspiration for your day."],
+    explore: ["Explore All Blogs", "Discover all 70 stories from different categories."],
+    myblogs: ["My Blogs", "Manage the stories you have published."],
+    saved: ["Saved Stories", "Your favourite blogs in one place."],
+    dashboard: ["My Dashboard", "Your personal BlogSpace overview."]
+  };
+
+  $("#pageTitle").textContent = headings[page][0];
+  $("#pageSubtitle").textContent = headings[page][1];
+
+  if (page === "dashboard") {
+    renderDashboard();
+    return;
+  }
+
+  renderCategories();
+  renderBlogs();
+}
+
+document.addEventListener("click", event => {
+  const pageButton = event.target.closest("[data-page]");
+
+  if (pageButton) {
+    event.preventDefault();
+    showPage(pageButton.dataset.page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+});
+
+// =====================================
+// CATEGORIES
+// =====================================
+
+function renderCategories() {
+  const allCategories = ["All", ...categories];
+
+  $("#categoryList").innerHTML = allCategories.map(category => `
+    <button
+      class="category-btn ${activeCategory === category ? "active" : ""}"
+      data-category="${escapeHTML(category)}">
+      ${escapeHTML(category)}
+    </button>
+  `).join("");
+}
+
+$("#categoryList").addEventListener("click", event => {
   const button = event.target.closest("[data-category]");
   if (!button) return;
+
   activeCategory = button.dataset.category;
   renderCategories();
   renderBlogs();
 });
 
-// ========================================
-// BLOG CARDS
-// ========================================
-
-function createBlogCard(blog) {
-  const isSaved = savedBlogs.includes(blog.id);
-
-  return `
-    <article class="blog-card">
-      <div class="blog-image-wrap">
-        <img class="blog-image"
-          src="${escapeHTML(blog.image)}"
-          alt="${escapeHTML(blog.title)}"
-          loading="lazy"
-          onerror="this.onerror=null;this.src='${imageFallback(blog.id)}'">
-        <span class="image-category">${escapeHTML(blog.category)}</span>
-      </div>
-
-      <div class="blog-card-content">
-        <div class="blog-meta">
-          <span>${formatDate(blog.date)}</span>
-          <span>◉ ${Number(blog.views || 0)} views</span>
-        </div>
-
-        <h3 data-read="${escapeHTML(blog.id)}">${escapeHTML(blog.title)}</h3>
-        <p>${escapeHTML(blog.excerpt)}</p>
-
-        <div class="card-footer">
-          <span class="author">By ${escapeHTML(blog.author)}</span>
-          <div class="card-actions">
-            <button class="action-btn" data-like="${escapeHTML(blog.id)}">
-              ♡ ${Number(blog.likes || 0)}
-            </button>
-            <button class="action-btn ${isSaved ? "saved" : ""}"
-              data-save="${escapeHTML(blog.id)}">
-              ${isSaved ? "★" : "☆"}
-            </button>
-            <button class="action-btn" data-read="${escapeHTML(blog.id)}">Read →</button>
-          </div>
-        </div>
-      </div>
-    </article>
-  `;
-}
-
-// ========================================
-// FILTER AND RENDER
-// ========================================
+// =====================================
+// BLOG FILTERING AND DISPLAY
+// =====================================
 
 function getVisibleBlogs() {
-  const search = document.getElementById("searchInput").value.toLowerCase().trim();
   let result = [...blogs];
+
+  if (activePage === "home") {
+    result = result.filter(blog => blog.isSample);
+  }
 
   if (activePage === "myblogs") {
     result = result.filter(blog =>
-      !blog.isSample && currentUser && blog.userId === currentUser.id
+      !blog.isSample &&
+      currentUser &&
+      blog.userEmail === currentUser.email
     );
   }
 
@@ -370,196 +370,422 @@ function getVisibleBlogs() {
     result = result.filter(blog => blog.category === activeCategory);
   }
 
+  const search = $("#searchInput").value.toLowerCase().trim();
+
   if (search) {
     result = result.filter(blog =>
-      [blog.title, blog.category, blog.author, blog.excerpt]
-        .some(value => String(value || "").toLowerCase().includes(search))
+      blog.title.toLowerCase().includes(search) ||
+      blog.excerpt.toLowerCase().includes(search) ||
+      blog.category.toLowerCase().includes(search) ||
+      blog.author.toLowerCase().includes(search)
     );
   }
 
-  const sort = document.getElementById("sortSelect").value;
+  const sort = $("#sortSelect").value;
 
-  if (sort === "latest") result.sort((a, b) => new Date(b.date) - new Date(a.date));
-  if (sort === "oldest") result.sort((a, b) => new Date(a.date) - new Date(b.date));
-  if (sort === "popular") result.sort((a, b) => b.likes - a.likes);
-  if (sort === "az") result.sort((a, b) => a.title.localeCompare(b.title));
+  if (sort === "latest") {
+    result.sort((a, b) => new Date(b.date) - new Date(a.date));
+  }
+
+  if (sort === "oldest") {
+    result.sort((a, b) => new Date(a.date) - new Date(b.date));
+  }
+
+  if (sort === "popular") {
+    result.sort((a, b) => b.likes.length - a.likes.length);
+  }
+
+  if (sort === "az") {
+    result.sort((a, b) => a.title.localeCompare(b.title));
+  }
+
+  if (activePage === "home") {
+    result = result.slice(0, 15);
+  }
+
+  if (activePage === "explore") {
+    result = result.slice(0, 70);
+  }
 
   return result;
 }
 
 function renderBlogs() {
-  const container = document.getElementById("blogContainer");
   const result = getVisibleBlogs();
 
-  container.innerHTML = result.map(createBlogCard).join("");
+  $("#resultsCount").textContent =
+    `Showing ${result.length} ${result.length === 1 ? "story" : "stories"}`;
 
-  document.getElementById("resultsCount").textContent =
-    `Showing ${result.length} article${result.length === 1 ? "" : "s"}`;
+  $("#blogContainer").innerHTML = result.map(blog => `
+    <article class="blog-card">
+      <img
+        class="blog-image"
+        src="${escapeHTML(getImage(blog))}"
+        alt="${escapeHTML(blog.title)}"
+        loading="lazy"
+        onerror="this.src='https://picsum.photos/seed/${encodeURIComponent(blog.id)}-fallback/900/600'">
 
-  document.getElementById("emptyState").classList.toggle("hidden", result.length !== 0);
-  document.getElementById("totalBlogs").textContent = blogs.length + "+";
+      <div class="blog-info">
+        <span class="blog-category">${escapeHTML(blog.category)}</span>
+
+        <h3>${escapeHTML(blog.title)}</h3>
+
+        <p>${escapeHTML(blog.excerpt)}</p>
+
+        <div class="blog-meta">
+          <span>By ${escapeHTML(blog.author)}</span>
+          <span>${formatDate(blog.date)}</span>
+        </div>
+
+        <div class="blog-card-actions">
+          <button class="read-btn" data-read="${escapeHTML(blog.id)}">
+            Read Story →
+          </button>
+
+          <div>
+            <button class="small-action" data-like="${escapeHTML(blog.id)}" title="Like">
+              ${blog.likes.length ? "♥" : "♡"} ${blog.likes.length}
+            </button>
+
+            <button class="small-action" data-save="${escapeHTML(blog.id)}" title="Save">
+              ${savedBlogs.includes(blog.id) ? "★" : "☆"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  `).join("");
+
+  $("#emptyState").classList.toggle("hidden", result.length > 0);
+  $("#blogContainer").classList.toggle("hidden", result.length === 0);
 }
 
-// ========================================
-// PAGE NAVIGATION
-// ========================================
+$("#searchInput").addEventListener("input", renderBlogs);
+$("#sortSelect").addEventListener("change", renderBlogs);
 
-function showPage(page) {
-  activePage = page;
+$("#clearFilters").addEventListener("click", () => {
   activeCategory = "All";
-  document.getElementById("searchInput").value = "";
-
-  const titlesMap = {
-    explore: ["Explore articles", "Find your next favourite read."],
-    myblogs: ["My Blogs", "Manage the stories you have published."],
-    saved: ["Saved Articles", "Your bookmarked stories in one place."],
-    dashboard: ["Your Dashboard", "A quick look at your writing activity."]
-  };
-
-  if (!titlesMap[page]) page = "explore";
-
-  document.getElementById("pageTitle").textContent = titlesMap[page][0];
-  document.getElementById("pageSubtitle").textContent = titlesMap[page][1];
-
-  document.getElementById("hero").classList.toggle("hidden", page !== "explore");
-  document.querySelector(".stats").classList.toggle("hidden", page !== "explore");
-  document.querySelector(".newsletter").classList.toggle("hidden", page !== "explore");
-
-  document.querySelectorAll(".nav-link").forEach(button => {
-    button.classList.toggle("active", button.dataset.page === page);
-  });
-
-  if (page === "dashboard" && !currentUser) {
-    showToast("Please login to view your dashboard.");
-    openAuth("login");
-    return;
-  }
-
-  if ((page === "myblogs" || page === "saved") && !currentUser) {
-    showToast("Please login first.");
-    openAuth("login");
-    return;
-  }
-
-  if (page === "dashboard") {
-    renderDashboard();
-  } else {
-    renderCategories();
-    renderBlogs();
-  }
-
-  document.getElementById("nav").classList.remove("open");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-document.querySelectorAll(".nav-link").forEach(button => {
-  button.addEventListener("click", () => showPage(button.dataset.page));
+  $("#searchInput").value = "";
+  $("#sortSelect").value = "latest";
+  renderCategories();
+  renderBlogs();
 });
 
-// ========================================
-// AUTHENTICATION DEMO
-// ========================================
+// =====================================
+// BLOG CARD ACTIONS
+// =====================================
+
+$("#blogContainer").addEventListener("click", event => {
+  const readButton = event.target.closest("[data-read]");
+  const likeButton = event.target.closest("[data-like]");
+  const saveButton = event.target.closest("[data-save]");
+
+  if (readButton) {
+    openArticle(readButton.dataset.read);
+  }
+
+  if (likeButton) {
+    toggleLike(likeButton.dataset.like);
+  }
+
+  if (saveButton) {
+    toggleSave(saveButton.dataset.save);
+  }
+});
+
+function toggleLike(id) {
+  const blog = getBlog(id);
+  if (!blog) return;
+
+  if (!currentUser) {
+    showToast("Please login to like a blog.");
+    openAuth("login");
+    return;
+  }
+
+  if (!Array.isArray(blog.likes)) blog.likes = [];
+
+  const alreadyLiked = blog.likes.includes(currentUser.email);
+
+  if (alreadyLiked) {
+    blog.likes = blog.likes.filter(email => email !== currentUser.email);
+    showToast("Like removed.");
+  } else {
+    blog.likes.push(currentUser.email);
+    showToast("You liked this story!");
+  }
+
+  saveBlogs();
+  renderBlogs();
+
+  if (currentArticleId === id) {
+    updateArticleButtons();
+  }
+}
+
+function toggleSave(id) {
+  if (!currentUser) {
+    showToast("Please login to save stories.");
+    openAuth("login");
+    return;
+  }
+
+  if (savedBlogs.includes(id)) {
+    savedBlogs = savedBlogs.filter(savedId => savedId !== id);
+    showToast("Removed from saved stories.");
+  } else {
+    savedBlogs.push(id);
+    showToast("Story saved successfully!");
+  }
+
+  saveData("blogspace_saved", savedBlogs);
+  renderBlogs();
+
+  if (currentArticleId === id) {
+    updateArticleButtons();
+  }
+}
+
+// =====================================
+// ARTICLE VIEW
+// =====================================
+
+function openArticle(id) {
+  const blog = getBlog(id);
+  if (!blog) return;
+
+  currentArticleId = id;
+  blog.views = (blog.views || 0) + 1;
+  saveBlogs();
+
+  $("#articleImage").src = getImage(blog);
+  $("#articleCategory").textContent = blog.category;
+  $("#articleTitle").textContent = blog.title;
+
+  $("#articleMeta").textContent =
+    `By ${blog.author} • ${formatDate(blog.date)} • ${blog.views} views`;
+
+  $("#articleBody").textContent = blog.content;
+
+  renderComments();
+  updateArticleButtons();
+
+  openModal("articleModal");
+}
+
+function updateArticleButtons() {
+  const blog = getBlog(currentArticleId);
+  if (!blog) return;
+
+  const liked = currentUser &&
+    blog.likes.includes(currentUser.email);
+
+  const saved = savedBlogs.includes(blog.id);
+
+  $("#articleLike").textContent = liked ? "♥ Liked" : "♡ Like";
+  $("#articleSave").textContent = saved ? "★ Saved" : "☆ Save";
+}
+
+$("#articleLike").addEventListener("click", () => {
+  if (currentArticleId) toggleLike(currentArticleId);
+});
+
+$("#articleSave").addEventListener("click", () => {
+  if (currentArticleId) toggleSave(currentArticleId);
+});
+
+$("#articleShare").addEventListener("click", async () => {
+  const blog = getBlog(currentArticleId);
+  if (!blog) return;
+
+  const shareText = `${blog.title}\n${blog.excerpt}`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: blog.title,
+        text: shareText
+      });
+    } catch (error) {
+      // User cancelled sharing.
+    }
+  } else if (navigator.clipboard) {
+    await navigator.clipboard.writeText(shareText);
+    showToast("Blog details copied!");
+  } else {
+    showToast("Sharing is not supported in this browser.");
+  }
+});
+
+// =====================================
+// COMMENTS
+// =====================================
+
+function renderComments() {
+  const blog = getBlog(currentArticleId);
+  if (!blog) return;
+
+  if (!Array.isArray(blog.comments)) blog.comments = [];
+
+  $("#commentsList").innerHTML = blog.comments.length
+    ? blog.comments.map(comment => `
+        <div class="comment-item">
+          <strong>${escapeHTML(comment.name)}</strong>
+          <p>${escapeHTML(comment.text)}</p>
+        </div>
+      `).join("")
+    : `<p style="color:var(--muted);font-size:13px;">No comments yet. Be the first!</p>`;
+}
+
+$("#commentForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!currentUser) {
+    showToast("Please login to comment.");
+    openAuth("login");
+    return;
+  }
+
+  const blog = getBlog(currentArticleId);
+  const text = $("#commentInput").value.trim();
+
+  if (!blog || !text) return;
+
+  if (!Array.isArray(blog.comments)) blog.comments = [];
+
+  blog.comments.push({
+    name: currentUser.name,
+    text
+  });
+
+  saveBlogs();
+  $("#commentInput").value = "";
+  renderComments();
+
+  showToast("Comment added!");
+});
+
+// =====================================
+// AUTHENTICATION - DEMO ONLY
+// =====================================
 
 function openAuth(mode) {
   authMode = mode;
 
-  document.getElementById("authTitle").textContent =
-    mode === "login" ? "Welcome back" : "Create your account";
+  const signup = mode === "signup";
 
-  document.getElementById("authDescription").textContent =
-    mode === "login" ? "Login to continue your journey." : "Join BlogSpace and share your ideas.";
+  $("#authTitle").textContent =
+    signup ? "Create your account" : "Welcome back";
 
-  document.getElementById("authSubmit").textContent =
-    mode === "login" ? "Login" : "Create Account";
+  $("#authDescription").textContent =
+    signup
+      ? "Join our community of creative minds."
+      : "Login to continue to BlogSpace.";
 
-  document.getElementById("nameField").classList.toggle("hidden", mode === "login");
-  document.getElementById("authName").required = mode === "signup";
+  $("#authSubmit").textContent =
+    signup ? "Create Account" : "Login";
 
-  document.getElementById("authSwitch").innerHTML =
-    mode === "login"
-      ? `Don't have an account? <button type="button" id="switchAuth">Sign up</button>`
-      : `Already have an account? <button type="button" id="switchAuth">Login</button>`;
+  $("#nameField").classList.toggle("hidden", !signup);
+  $("#authName").required = signup;
 
-  document.getElementById("authModal").classList.remove("hidden");
+  $("#authSwitch").innerHTML = signup
+    ? `Already have an account? <button type="button">Login</button>`
+    : `Don't have an account? <button type="button">Sign Up</button>`;
 
-  document.getElementById("switchAuth").onclick = () =>
-    openAuth(authMode === "login" ? "signup" : "login");
+  openModal("authModal");
 }
 
-document.getElementById("loginBtn").addEventListener("click", () => openAuth("login"));
-document.getElementById("signupBtn").addEventListener("click", () => openAuth("signup"));
+$("#loginBtn").addEventListener("click", () => {
+  if (currentUser) {
+    currentUser = null;
+    saveData("blogspace_currentUser", null);
+    updateHeader();
+    showPage(activePage);
+    showToast("You have logged out.");
+  } else {
+    openAuth("login");
+  }
+});
 
-document.getElementById("authForm").addEventListener("submit", event => {
+$("#signupBtn").addEventListener("click", () => {
+  openAuth("signup");
+});
+
+$("#authSwitch").addEventListener("click", () => {
+  openAuth(authMode === "signup" ? "login" : "signup");
+});
+
+$("#authForm").addEventListener("submit", event => {
   event.preventDefault();
 
-  const name = document.getElementById("authName").value.trim();
-  const email = document.getElementById("authEmail").value.trim().toLowerCase();
-  const password = document.getElementById("authPassword").value;
+  const name = $("#authName").value.trim();
+  const email = $("#authEmail").value.trim().toLowerCase();
+  const password = $("#authPassword").value;
 
   if (authMode === "signup") {
-    if (!name) return showToast("Please enter your name.");
-    if (users.some(user => user.email === email)) return showToast("This email is already registered.");
+    if (!name) {
+      showToast("Please enter your name.");
+      return;
+    }
 
-    const newUser = { id: makeId(), name, email, password };
+    if (users.some(user => user.email === email)) {
+      showToast("This email is already registered.");
+      return;
+    }
+
+    const newUser = { name, email, password };
     users.push(newUser);
     saveData("blogspace_users", users);
 
-    currentUser = { id: newUser.id, name: newUser.name, email: newUser.email };
+    currentUser = { name, email };
+    saveData("blogspace_currentUser", currentUser);
+
+    closeModal($("#authModal"));
+    $("#authForm").reset();
+    updateHeader();
+    renderBlogs();
+
+    showToast("Account created successfully!");
   } else {
-    const foundUser = users.find(user =>
+    const user = users.find(user =>
       user.email === email && user.password === password
     );
 
-    if (!foundUser) return showToast("Incorrect email or password.");
+    if (!user) {
+      showToast("Incorrect email or password.");
+      return;
+    }
 
-    currentUser = { id: foundUser.id, name: foundUser.name, email: foundUser.email };
+    currentUser = { name: user.name, email: user.email };
+    saveData("blogspace_currentUser", currentUser);
+
+    closeModal($("#authModal"));
+    $("#authForm").reset();
+    updateHeader();
+    renderBlogs();
+
+    showToast(`Welcome back, ${user.name}!`);
   }
-
-  saveData("blogspace_currentUser", currentUser);
-  document.getElementById("authModal").classList.add("hidden");
-  document.getElementById("authForm").reset();
-
-  updateHeader();
-  showToast(authMode === "login" ? "Welcome back!" : "Account created successfully!");
-
-  if (activePage === "myblogs" || activePage === "saved") renderBlogs();
-  if (activePage === "dashboard") renderDashboard();
 });
 
 function updateHeader() {
-  const loginButton = document.getElementById("loginBtn");
-  const signupButton = document.getElementById("signupBtn");
-
   if (currentUser) {
-    loginButton.textContent = "Logout";
-    signupButton.textContent = currentUser.name.split(" ")[0];
-    loginButton.onclick = logoutUser;
-    signupButton.onclick = () => showPage("dashboard");
+    $("#loginBtn").textContent = "Logout";
+    $("#signupBtn").textContent = currentUser.name.split(" ")[0];
   } else {
-    loginButton.textContent = "Login";
-    signupButton.textContent = "Get Started";
-    loginButton.onclick = () => openAuth("login");
-    signupButton.onclick = () => openAuth("signup");
+    $("#loginBtn").textContent = "Login";
+    $("#signupBtn").textContent = "Get Started";
   }
 }
 
-function logoutUser() {
-  currentUser = null;
-  localStorage.removeItem("blogspace_currentUser");
-  updateHeader();
-  showPage("explore");
-  showToast("You have logged out.");
-}
+// =====================================
+// CREATE AND EDIT BLOG
+// =====================================
 
-// ========================================
-// CREATE AND EDIT BLOGS
-// ========================================
-
-function renderBlogCategoryOptions() {
-  document.getElementById("blogCategory").innerHTML =
-    categories.filter(category => category !== "All").map(category =>
-      `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`
-    ).join("");
+function fillBlogCategories() {
+  $("#blogCategory").innerHTML = categories.map(category => `
+    <option value="${escapeHTML(category)}">${escapeHTML(category)}</option>
+  `).join("");
 }
 
 function openBlogModal(blog = null) {
@@ -571,62 +797,71 @@ function openBlogModal(blog = null) {
 
   editingBlogId = blog ? blog.id : null;
 
-  document.getElementById("blogModalTitle").textContent =
-    blog ? "Edit your blog" : "Create a blog";
+  $("#blogModalTitle").textContent =
+    blog ? "Edit your story" : "Write a new story";
 
-  document.getElementById("publishBtn").textContent =
-    blog ? "Save Changes" : "Publish Blog";
+  $("#publishBtn").textContent =
+    blog ? "Update Blog" : "Publish Blog";
 
-  document.getElementById("blogTitle").value = blog?.title || "";
-  document.getElementById("blogCategory").value = blog?.category || "Technology";
-  document.getElementById("blogExcerpt").value = blog?.excerpt || "";
-  document.getElementById("blogContent").value = blog?.content || "";
-  document.getElementById("blogImage").value = blog && !blog.isSample ? blog.image : "";
+  $("#blogTitle").value = blog?.title || "";
+  $("#blogCategory").value = blog?.category || "Technology";
+  $("#blogExcerpt").value = blog?.excerpt || "";
+  $("#blogContent").value = blog?.content || "";
+  $("#blogImage").value = blog?.image || "";
 
-  document.getElementById("blogModal").classList.remove("hidden");
+  openModal("blogModal");
 }
 
-document.getElementById("createBtn").addEventListener("click", () => openBlogModal());
-document.getElementById("createBtnTop").addEventListener("click", () => openBlogModal());
+$("#createBtn").addEventListener("click", () => openBlogModal());
+$("#createBtnTop").addEventListener("click", () => openBlogModal());
 
-document.getElementById("blogForm").addEventListener("submit", event => {
+$("#blogForm").addEventListener("submit", event => {
   event.preventDefault();
 
-  if (!currentUser) return showToast("Please login first.");
+  if (!currentUser) {
+    showToast("Please login first.");
+    return;
+  }
 
-  const title = document.getElementById("blogTitle").value.trim();
-  const category = document.getElementById("blogCategory").value;
-  const excerpt = document.getElementById("blogExcerpt").value.trim();
-  const content = document.getElementById("blogContent").value.trim();
-  const imageUrl = document.getElementById("blogImage").value.trim();
+  const title = $("#blogTitle").value.trim();
+  const category = $("#blogCategory").value;
+  const excerpt = $("#blogExcerpt").value.trim();
+  const content = $("#blogContent").value.trim();
+  const image = $("#blogImage").value.trim();
 
   if (!title || !excerpt || !content) {
-    return showToast("Please complete all required fields.");
+    showToast("Please fill all required fields.");
+    return;
   }
 
   if (editingBlogId) {
-    const index = blogs.findIndex(blog =>
-      blog.id === editingBlogId && blog.userId === currentUser.id
-    );
+    const blog = getBlog(editingBlogId);
 
-    if (index === -1) return showToast("Blog not found.");
+    if (!blog || blog.userEmail !== currentUser.email) {
+      showToast("You cannot edit this blog.");
+      return;
+    }
 
-    blogs[index] = {
-      ...blogs[index],
-      title, category, excerpt, content,
-      image: imageUrl || blogs[index].image
-    };
+    blog.title = title;
+    blog.category = category;
+    blog.excerpt = excerpt;
+    blog.content = content;
+    blog.image = image;
+    blog.updatedAt = new Date().toISOString();
 
-    showToast("Blog updated successfully!");
+    showToast("Your blog has been updated!");
   } else {
     const newBlog = {
-      id: makeId(),
-      userId: currentUser.id,
-      title, category, excerpt, content,
-      image: imageUrl || getBlogImage(category, makeId()),
+      id: "user-" + Date.now(),
+      title,
+      category,
+      excerpt,
+      content,
+      image,
       author: currentUser.name,
+      userEmail: currentUser.email,
       date: new Date().toISOString(),
-      likes: 0,
+      likes: [],
       views: 0,
       comments: [],
       isSample: false
@@ -636,320 +871,262 @@ document.getElementById("blogForm").addEventListener("submit", event => {
     showToast("Your blog has been published!");
   }
 
-  saveData("blogspace_blogs", blogs);
-  document.getElementById("blogModal").classList.add("hidden");
-  document.getElementById("blogForm").reset();
-  editingBlogId = null;
-  renderBlogs();
+  saveBlogs();
+  closeModal($("#blogModal"));
+  $("#blogForm").reset();
+
+  showPage("myblogs");
 });
 
-// ========================================
-// LIKE AND SAVE
-// ========================================
+// =====================================
+// MY BLOGS - EDIT / DELETE
+// =====================================
 
-function likeBlog(id) {
-  const blog = blogs.find(item => item.id === id);
-  if (!blog) return;
-
-  blog.likes = Number(blog.likes || 0) + 1;
-  saveData("blogspace_blogs", blogs);
-  renderBlogs();
-
-  if (currentArticleId === id) updateArticleActions();
-  showToast("You liked this article!");
-}
-
-function toggleSave(id) {
-  if (!currentUser) {
-    showToast("Login to save articles.");
-    openAuth("login");
-    return;
-  }
-
-  if (savedBlogs.includes(id)) {
-    savedBlogs = savedBlogs.filter(item => item !== id);
-    showToast("Article removed from saved list.");
-  } else {
-    savedBlogs.push(id);
-    showToast("Article saved successfully!");
-  }
-
-  saveData("blogspace_saved", savedBlogs);
-  renderBlogs();
-
-  if (currentArticleId === id) updateArticleActions();
-}
-
-// ========================================
-// OPEN ARTICLE
-// ========================================
-
-function openArticle(id) {
-  const blog = blogs.find(item => item.id === id);
-  if (!blog) return;
-
-  currentArticleId = id;
-  blog.views = Number(blog.views || 0) + 1;
-  saveData("blogspace_blogs", blogs);
-
-  const image = document.getElementById("articleImage");
-  image.src = blog.image;
-  image.onerror = function () {
-    this.onerror = null;
-    this.src = imageFallback(blog.id);
-  };
-
-  document.getElementById("articleCategory").textContent = blog.category;
-  document.getElementById("articleTitle").textContent = blog.title;
-  document.getElementById("articleMeta").textContent =
-    `By ${blog.author} • ${formatDate(blog.date)} • ${blog.views} views`;
-
-  document.getElementById("articleBody").textContent = blog.content;
-
-  renderComments(blog);
-  updateArticleActions();
-
-  document.getElementById("articleModal").classList.remove("hidden");
-  renderBlogs();
-}
-
-function updateArticleActions() {
-  const blog = blogs.find(item => item.id === currentArticleId);
-  if (!blog) return;
-
-  document.getElementById("articleLike").textContent = `♡ Like (${blog.likes})`;
-  document.getElementById("articleSave").textContent =
-    savedBlogs.includes(blog.id) ? "★ Saved" : "☆ Save";
-}
-
-document.getElementById("articleLike").addEventListener("click", () => {
-  if (currentArticleId) likeBlog(currentArticleId);
-});
-
-document.getElementById("articleSave").addEventListener("click", () => {
-  if (currentArticleId) toggleSave(currentArticleId);
-});
-
-document.getElementById("articleShare").addEventListener("click", async () => {
-  const blog = blogs.find(item => item.id === currentArticleId);
-  if (!blog) return;
-
-  const shareText = `${blog.title} - ${blog.excerpt}`;
-
-  try {
-    if (navigator.share) {
-      await navigator.share({ title: blog.title, text: shareText, url: location.href });
-    } else if (navigator.clipboard) {
-      await navigator.clipboard.writeText(shareText);
-      showToast("Article details copied!");
-    } else {
-      showToast("Sharing is not supported in this browser.");
-    }
-  } catch (error) {
-    // Sharing cancelled by the user.
-  }
-});
-
-// ========================================
-// COMMENTS
-// ========================================
-
-function renderComments(blog) {
-  const comments = blog.comments || [];
-
-  document.getElementById("commentsList").innerHTML = comments.length
-    ? comments.map(comment => `
-        <div class="comment">
-          <strong>${escapeHTML(comment.name)}</strong>
-          ${escapeHTML(comment.text)}
-        </div>
-      `).join("")
-    : `<p style="color:var(--muted);font-size:13px;">No comments yet. Be the first to comment!</p>`;
-}
-
-document.getElementById("commentForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  if (!currentUser) {
-    showToast("Login to comment.");
-    openAuth("login");
-    return;
-  }
-
-  const input = document.getElementById("commentInput");
-  const text = input.value.trim();
-  if (!text || !currentArticleId) return;
-
-  const blog = blogs.find(item => item.id === currentArticleId);
-  if (!blog) return;
-
-  blog.comments = blog.comments || [];
-  blog.comments.push({
-    id: makeId(),
-    name: currentUser.name,
-    text,
-    date: new Date().toISOString()
-  });
-
-  saveData("blogspace_blogs", blogs);
-  input.value = "";
-  renderComments(blog);
-  showToast("Comment added!");
-});
-
-// ========================================
-// CARD CLICK EVENTS
-// ========================================
-
-document.getElementById("blogContainer").addEventListener("click", event => {
-  const readButton = event.target.closest("[data-read]");
-  const likeButton = event.target.closest("[data-like]");
-  const saveButton = event.target.closest("[data-save]");
-
-  if (readButton) {
-    openArticle(readButton.dataset.read);
-    return;
-  }
-
-  if (likeButton) {
-    likeBlog(likeButton.dataset.like);
-    return;
-  }
-
-  if (saveButton) toggleSave(saveButton.dataset.save);
-});
-
-// ========================================
-// DASHBOARD
-// ========================================
-
-function renderDashboard() {
+function renderMyBlogManagement() {
   const myBlogs = blogs.filter(blog =>
-    !blog.isSample && blog.userId === currentUser.id
+    !blog.isSample &&
+    currentUser &&
+    blog.userEmail === currentUser.email
   );
 
-  const totalLikes = myBlogs.reduce((sum, blog) => sum + Number(blog.likes || 0), 0);
-  const totalViews = myBlogs.reduce((sum, blog) => sum + Number(blog.views || 0), 0);
+  $("#blogContainer").innerHTML = myBlogs.map(blog => `
+    <article class="blog-card">
+      <img class="blog-image" src="${escapeHTML(getImage(blog))}" alt="Blog image">
+      <div class="blog-info">
+        <span class="blog-category">${escapeHTML(blog.category)}</span>
+        <h3>${escapeHTML(blog.title)}</h3>
+        <p>${escapeHTML(blog.excerpt)}</p>
+        <div class="blog-meta">
+          <span>${blog.views || 0} views</span>
+          <span>${blog.likes.length} likes</span>
+        </div>
+        <div class="blog-card-actions">
+          <button class="read-btn" data-read="${escapeHTML(blog.id)}">Read →</button>
+          <div>
+            <button class="small-action" data-edit="${escapeHTML(blog.id)}">✎</button>
+            <button class="small-action" data-delete="${escapeHTML(blog.id)}">🗑</button>
+          </div>
+        </div>
+      </div>
+    </article>
+  `).join("");
 
-  document.getElementById("blogContainer").innerHTML = `
-    <div class="blog-card blog-card-content">
-      <span class="eyebrow">YOUR PROFILE</span>
-      <h3>${escapeHTML(currentUser.name)}</h3>
-      <p>${escapeHTML(currentUser.email)}</p>
-    </div>
-    <div class="blog-card blog-card-content">
-      <span class="eyebrow">YOUR ARTICLES</span>
-      <h3>${myBlogs.length}</h3>
-      <p>Blogs published by you.</p>
-    </div>
-    <div class="blog-card blog-card-content">
-      <span class="eyebrow">TOTAL LIKES</span>
-      <h3>${totalLikes}</h3>
-      <p>Likes received on your blogs.</p>
-    </div>
-    <div class="blog-card blog-card-content">
-      <span class="eyebrow">TOTAL VIEWS</span>
-      <h3>${totalViews}</h3>
-      <p>Views on your published blogs.</p>
-    </div>
-    <div class="blog-card blog-card-content">
-      <span class="eyebrow">SAVED ARTICLES</span>
-      <h3>${savedBlogs.length}</h3>
-      <p>Articles you have bookmarked.</p>
+  $("#resultsCount").textContent = `You have ${myBlogs.length} published blogs`;
+  $("#emptyState").classList.toggle("hidden", myBlogs.length > 0);
+  $("#blogContainer").classList.toggle("hidden", myBlogs.length === 0);
+}
+
+// =====================================
+// DASHBOARD
+// =====================================
+
+function renderDashboard() {
+  const myBlogs = currentUser
+    ? blogs.filter(blog =>
+        !blog.isSample && blog.userEmail === currentUser.email
+      )
+    : [];
+
+  const totalLikes = myBlogs.reduce(
+    (total, blog) => total + blog.likes.length, 0
+  );
+
+  const totalViews = myBlogs.reduce(
+    (total, blog) => total + (blog.views || 0), 0
+  );
+
+  const mySaved = currentUser ? savedBlogs.length : 0;
+
+  $("#categoryList").innerHTML = "";
+  $("#toolbar").classList.add("hidden");
+  $("#resultsCount").textContent = "";
+  $("#clearFilters").classList.add("hidden");
+
+  $("#blogContainer").classList.remove("hidden");
+  $("#emptyState").classList.add("hidden");
+
+  $("#blogContainer").innerHTML = `
+    <div class="dashboard-card">
+      <span class="eyebrow">YOUR BLOGSPACE</span>
+      <h2>Hello, ${currentUser ? escapeHTML(currentUser.name) : "Guest"}!</h2>
+      <p style="color:var(--muted);margin:10px 0 20px;">
+        ${currentUser ? "Welcome to your personal dashboard." : "Login to manage your blogs and saved stories."}
+      </p>
+
+      <div class="stats">
+        <div><strong>${myBlogs.length}</strong><span>My Blogs</span></div>
+        <div><strong>${totalLikes}</strong><span>Total Likes</span></div>
+        <div><strong>${totalViews}</strong><span>Total Views</span></div>
+      </div>
+
+      <div style="margin-top:25px;">
+        <button class="btn btn-primary" id="dashboardCreate">＋ Write a Blog</button>
+        <button class="btn btn-outline" id="dashboardSaved">☆ Saved Blogs (${mySaved})</button>
+      </div>
     </div>
   `;
+
+  $("#dashboardCreate").addEventListener("click", () => openBlogModal());
+
+  $("#dashboardSaved").addEventListener("click", () => showPage("saved"));
 }
 
-// ========================================
-// SEARCH AND SORT
-// ========================================
+// =====================================
+// MY BLOGS / SAVED PAGE RENDERING
+// =====================================
 
-document.getElementById("searchInput").addEventListener("input", renderBlogs);
-document.getElementById("sortSelect").addEventListener("change", renderBlogs);
+const originalRenderBlogs = renderBlogs;
 
-document.getElementById("clearFilters").addEventListener("click", () => {
-  activeCategory = "All";
-  document.getElementById("searchInput").value = "";
-  document.getElementById("sortSelect").value = "latest";
-  renderCategories();
-  renderBlogs();
+function renderPageBlogs() {
+  if (activePage === "myblogs") {
+    if (!currentUser) {
+      $("#blogContainer").innerHTML = "";
+      $("#emptyState").classList.remove("hidden");
+      $("#emptyState").querySelector("h3").textContent = "Login required";
+      $("#emptyState").querySelector("p").textContent =
+        "Login to see the blogs you have published.";
+      $("#resultsCount").textContent = "";
+      return;
+    }
+
+    renderMyBlogManagement();
+    return;
+  }
+
+  if (activePage === "saved" && !currentUser) {
+    $("#blogContainer").innerHTML = "";
+    $("#emptyState").classList.remove("hidden");
+    $("#emptyState").querySelector("h3").textContent = "Login required";
+    $("#emptyState").querySelector("p").textContent =
+      "Login to see your saved stories.";
+    $("#resultsCount").textContent = "";
+    return;
+  }
+
+  originalRenderBlogs();
+}
+
+// Use the correct renderer when changing page.
+renderBlogs = renderPageBlogs;
+
+// =====================================
+// EDIT AND DELETE EVENT HANDLERS
+// =====================================
+
+$("#blogContainer").addEventListener("click", event => {
+  const editButton = event.target.closest("[data-edit]");
+  const deleteButton = event.target.closest("[data-delete]");
+
+  if (editButton) {
+    const blog = getBlog(editButton.dataset.edit);
+    if (blog) openBlogModal(blog);
+  }
+
+  if (deleteButton) {
+    const id = deleteButton.dataset.delete;
+    const blog = getBlog(id);
+
+    if (!blog || !currentUser || blog.userEmail !== currentUser.email) {
+      showToast("You cannot delete this blog.");
+      return;
+    }
+
+    const confirmed = confirm("Are you sure you want to delete this blog?");
+
+    if (confirmed) {
+      blogs = blogs.filter(item => item.id !== id);
+      savedBlogs = savedBlogs.filter(item => item !== id);
+
+      saveBlogs();
+      saveData("blogspace_saved", savedBlogs);
+
+      renderBlogs();
+      showToast("Blog deleted successfully.");
+    }
+  }
 });
 
-// ========================================
-// DARK MODE
-// ========================================
-
-if (localStorage.getItem("blogspace_theme") === "dark") {
-  document.body.classList.add("dark");
-}
-
-function updateThemeButton() {
-  document.getElementById("themeBtn").textContent =
-    document.body.classList.contains("dark") ? "☀" : "☾";
-}
-
-updateThemeButton();
-
-document.getElementById("themeBtn").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  const isDark = document.body.classList.contains("dark");
-  localStorage.setItem("blogspace_theme", isDark ? "dark" : "light");
-  updateThemeButton();
-});
-
-// ========================================
-// CLOSE MODALS
-// ========================================
+// =====================================
+// MODAL CLOSE
+// =====================================
 
 document.querySelectorAll("[data-close]").forEach(button => {
   button.addEventListener("click", () => {
-    document.getElementById(button.dataset.close).classList.add("hidden");
+    closeModal(button.closest(".modal"));
   });
 });
 
 document.querySelectorAll(".modal").forEach(modal => {
   modal.addEventListener("click", event => {
-    if (event.target === modal) modal.classList.add("hidden");
+    if (event.target === modal) {
+      closeModal(modal);
+    }
   });
 });
 
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") {
-    document.querySelectorAll(".modal").forEach(modal => modal.classList.add("hidden"));
+    document.querySelectorAll(".modal:not(.hidden)").forEach(modal => {
+      closeModal(modal);
+    });
   }
 });
 
-// ========================================
-// MOBILE MENU
-// ========================================
+// =====================================
+// DARK MODE
+// =====================================
 
-document.getElementById("menuBtn").addEventListener("click", () => {
-  document.getElementById("nav").classList.toggle("open");
-});
-
-// ========================================
-// NEWSLETTER DEMO
-// ========================================
-
-document.getElementById("newsletterForm").addEventListener("submit", event => {
-  event.preventDefault();
-  showToast("Thank you for subscribing!");
-  event.target.reset();
-});
-
-// ========================================
-// INITIALIZE
-// ========================================
-
-function initializeBlogSpace() {
-  initializeBlogs();
-  renderCategories();
-  renderBlogCategoryOptions();
-  renderBlogs();
-  updateHeader();
-
-  document.getElementById("year").textContent = new Date().getFullYear();
+function setTheme(theme) {
+  document.body.classList.toggle("dark", theme === "dark");
+  $("#themeBtn").textContent = theme === "dark" ? "☀" : "☾";
+  localStorage.setItem("blogspace_theme", theme);
 }
 
-initializeBlogSpace();
+$("#themeBtn").addEventListener("click", () => {
+  const dark = document.body.classList.contains("dark");
+  setTheme(dark ? "light" : "dark");
+});
+
+// =====================================
+// MOBILE MENU
+// =====================================
+
+$("#menuBtn").addEventListener("click", () => {
+  $("#nav").classList.toggle("open");
+});
+
+// =====================================
+// NEWSLETTER
+// =====================================
+
+$("#newsletterForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const email = event.target.querySelector("input").value.trim();
+
+  if (email) {
+    showToast("Thank you for subscribing!");
+    event.target.reset();
+  }
+});
+
+// =====================================
+// INITIALIZE APP
+// =====================================
+
+function initApp() {
+  initializeBlogs();
+  fillBlogCategories();
+
+  $("#year").textContent = new Date().getFullYear();
+
+  const theme = localStorage.getItem("blogspace_theme") || "light";
+  setTheme(theme);
+
+  updateHeader();
+  showPage("home");
+
+  $("#totalBlogs").textContent = "70";
+}
+
+initApp();
