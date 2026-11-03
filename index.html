@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#68152f">
+  <title>BlogSpace | Share Your Stories</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav-container">
+    <a href="#" class="logo" onclick="showPage('explore')">Blog<span>Space.</span></a>
+
+    <nav id="nav">
+      <button class="nav-link active" data-page="explore">Explore</button>
+      <button class="nav-link" data-page="myblogs">My Blogs</button>
+      <button class="nav-link" data-page="saved">Saved</button>
+      <button class="nav-link" data-page="dashboard">Dashboard</button>
+    </nav>
+
+    <div class="header-actions">
+      <button id="themeBtn" class="icon-btn">☾</button>
+      <button id="loginBtn" class="outline-btn">Login</button>
+      <button id="signupBtn" class="primary-btn">Get Started</button>
+      <button id="menuBtn" class="icon-btn menu-btn">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">WELCOME TO BLOGSPACE</span>
+      <h1>Ideas worth sharing.<br><span>Stories worth reading.</span></h1>
+      <p>Discover inspiring stories, explore new ideas and share your knowledge with the world.</p>
+      <button class="primary-btn hero-btn" id="createBtn">＋ Write a Story</button>
+    </div>
+    <div class="hero-decoration">
+      <div class="hero-circle">B.</div>
+      <span class="floating floating-one">✦ Creativity</span>
+      <span class="floating floating-two">✎ Your Story</span>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><h2 id="totalBlogs">204+</h2><p>Articles</p></div>
+    <div><h2>13</h2><p>Categories</p></div>
+    <div><h2>∞</h2><p>Ideas to Explore</p></div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">DISCOVER SOMETHING NEW</span>
+        <h2 id="pageTitle">Explore articles</h2>
+        <p id="pageSubtitle">Find your next favourite read.</p>
+      </div>
+      <button class="primary-btn" id="createBtnTop">＋ Create Blog</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search articles, authors or topics...">
+      </div>
+
+      <select id="sortSelect">
+        <option value="latest">Latest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="popular">Most popular</option>
+        <option value="az">A to Z</option>
+      </select>
+    </div>
+
+    <div id="categoryList" class="category-list"></div>
+
+    <div class="results-row">
+      <span id="resultsCount">Showing articles</span>
+      <button id="clearFilters" class="text-btn">Clear filters</button>
+    </div>
+
+    <div id="blogContainer" class="blog-grid"></div>
+
+    <div id="emptyState" class="empty-state hidden">
+      <div>✧</div>
+      <h3>No articles found</h3>
+      <p>Try another search or category.</p>
+      <button class="primary-btn" onclick="showPage('explore')">Explore Articles</button>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <span class="eyebrow">STAY INSPIRED</span>
+    <h2>Stories in your inbox.</h2>
+    <p>Get fresh ideas and interesting reads delivered to you.</p>
+    <form id="newsletterForm">
+      <input type="email" placeholder="Enter your email address" required>
+      <button class="primary-btn">Subscribe</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <a href="#" class="logo">Blog<span>Space.</span></a>
+  <p>Share your ideas. Inspire the world.</p>
+  <p>© <span id="year"></span> BlogSpace. All rights reserved.</p>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal hidden" id="authModal">
+  <div class="modal-box auth-box">
+    <button class="modal-close" data-close="authModal">×</button>
+    <span class="eyebrow">WELCOME TO BLOGSPACE</span>
+    <h2 id="authTitle">Welcome back</h2>
+    <p id="authDescription">Login to continue your journey.</p>
+
+    <form id="authForm">
+      <div id="nameField" class="form-group hidden">
+        <label>Your Name</label>
+        <input id="authName" type="text" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input id="authEmail" type="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input id="authPassword" type="password" placeholder="Enter password" minlength="6" required>
+      </div>
+
+      <button class="primary-btn full-btn" id="authSubmit">Login</button>
+    </form>
+    <p class="auth-switch" id="authSwitch"></p>
+  </div>
+</div>
+
+<!-- CREATE BLOG MODAL -->
+<div class="modal hidden" id="blogModal">
+  <div class="modal-box">
+    <button class="modal-close" data-close="blogModal">×</button>
+    <span class="eyebrow">YOUR CREATIVE SPACE</span>
+    <h2 id="blogModalTitle">Create a blog</h2>
+
+    <form id="blogForm">
+      <div class="form-group">
+        <label>Blog Title</label>
+        <input id="blogTitle" type="text" placeholder="Enter an attractive title" required>
+      </div>
+
+      <div class="form-group">
+        <label>Category</label>
+        <select id="blogCategory"></select>
+      </div>
+
+      <div class="form-group">
+        <label>Short Description</label>
+        <textarea id="blogExcerpt" rows="3" placeholder="Write a short introduction..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Blog Content</label>
+        <textarea id="blogContent" rows="8" placeholder="Write your complete blog here..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Image URL (optional)</label>
+        <input id="blogImage" type="url" placeholder="https://example.com/image.jpg">
+      </div>
+
+      <button class="primary-btn full-btn" id="publishBtn">Publish Blog</button>
+    </form>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div class="modal hidden" id="articleModal">
+  <div class="modal-box article-box">
+    <button class="modal-close" data-close="articleModal">×</button>
+
+    <img id="articleImage" class="article-image" src="" alt="Article cover">
+    <span class="eyebrow" id="articleCategory"></span>
+    <h2 id="articleTitle"></h2>
+    <p id="articleMeta" class="article-meta"></p>
+
+    <div id="articleBody" class="article-body"></div>
+
+    <div class="article-actions">
+      <button class="outline-btn" id="articleLike">♡ Like</button>
+      <button class="outline-btn" id="articleSave">☆ Save</button>
+      <button class="outline-btn" id="articleShare">↗ Share</button>
+    </div>
+
+    <div class="comments-section">
+      <h3>Comments</h3>
+      <div id="commentsList"></div>
+      <form id="commentForm">
+        <input id="commentInput" type="text" placeholder="Write a comment..." required>
+        <button class="primary-btn">Post</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
